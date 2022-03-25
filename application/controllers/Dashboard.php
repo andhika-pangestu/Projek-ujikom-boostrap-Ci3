@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller
     public function index()
     {
         $data['title'] = 'Dashboard';
+
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
         $this->load->view('user/index');
@@ -35,25 +36,28 @@ class Dashboard extends CI_Controller
             'exact_length' => 'Masukan suhu tubuh dengan benar'
         ]);
         if ($this->form_validation->run() == false) {
-            $this->load->view('template/header',);
+            $data['title'] = 'Isi Data Perjalanan';
+            $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
-            $this->load->view('user/index');
+            $this->load->view('user/report');
             $this->load->view('template/footer');
         } else {
             $data = [
-                'tanggal' => htmlspecialchars($this->input->post('nama', true)),
+                'tanggal' => $this->input->post('tanggal', true),
                 'jam' => htmlspecialchars($this->input->post('jam', true)),
-                'lokasi' => htmlspecialchars($this->input->post('lokasi', true)),
-                'suhu_tubuh' => htmlspecialchars($this->input->post('suhu_tubuh', true)),
+                'lokasi' => $this->input->post('lokasi', true),
+                'suhu_tubuh' => $this->input->post('suhu_tubuh', true),
+                'id_user' => $this->session->userdata('id')
             ];
             $this->db->insert('tbcatatanperjalanan', $data);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Selamat! Data Berhasil disimpan</div>');
-            redirect('dashboard');
+            redirect('dashboard/report');
         }
     }
 
     public function dataperjalanan()
     {
+
         $data['title'] = 'Data Perjalanan';
         $data['catatan'] = $this->M_CatatanPerjalanan->getAllCatatan();
         $this->load->view('template/header', $data);

@@ -50,6 +50,7 @@
                                     <div class="form-group mb-3">
                                         <label class="small font-weight">Tanggal Lahir</label>
                                         <input type="date" class="form-control form-control-user" id="tgllahir" name="tgllahir">
+                                        <?= form_error('jeniskel', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label class="small font-weight">Status Vaksinasi</label>
@@ -58,6 +59,7 @@
                                             <option value="1">Sudah di vaksin</option>
                                             <option value="0">Belum di vaksin</option>
                                         </select>
+                                        <?= form_error('status', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-groupmb-3">
                                         <input type="text" class="form-control form-control-user " id="alamat" name="alamat" value="<?= set_value('alamat'); ?>" placeholder="Masukkan Alamat Lengkap">

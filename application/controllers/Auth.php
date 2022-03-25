@@ -36,8 +36,6 @@ class Auth extends CI_Controller
 
         $user = $this->db->get_where('tbuser', ['nik' => $nik])->row_array();
         $user = $this->db->get_where('tbuser', ['nama' => $nama])->row_array();
-
-
         if ($user) {
 
             $data = [
@@ -84,6 +82,11 @@ class Auth extends CI_Controller
             'required' => 'Jenis Kelamin Harus Dipilih',
             'in_list' => 'Jenis Kelamin Harus Dipilih',
         ]);
+        $this->form_validation->set_rules('status', 'Status', 'required|trim|in_list[1,0]', [
+            'required' => 'status Vaksinasi Harus Dipilih',
+            'in_list' => 'Status Vaksinasi Harus Dipilih',
+        ]);
+
 
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim', [
             'required' => 'Alamat Wajib Diisi'
