@@ -8,6 +8,7 @@ class Dashboard extends CI_Controller
         parent::__construct();
         $this->load->model('M_CatatanPerjalanan');
         $this->load->library('form_validation');
+        $this->load->library('pdf');
     }
     public function index()
     {
@@ -50,13 +51,14 @@ class Dashboard extends CI_Controller
                 'id_user' => $this->session->userdata('id')
             ];
             $this->db->insert('tbcatatanperjalanan', $data);
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Selamat! Data Berhasil disimpan</div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> <span class="alert-icon"><i class="ni ni-like-2"></i></span>Selamat! Data Berhasil disimpan</div>');
             redirect('dashboard/report');
         }
     }
 
     public function dataperjalanan()
     {
+
 
         $data['title'] = 'Data Perjalanan';
         $data['catatan'] = $this->M_CatatanPerjalanan->getAllCatatan();

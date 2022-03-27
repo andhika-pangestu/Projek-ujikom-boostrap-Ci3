@@ -7,6 +7,7 @@ class M_CatatanPerjalanan extends CI_Model
     private $_tableAdmin = 'tbadmin';
     private $_tableCatatanPerjalanan = 'tbcatatanperjalanan';
 
+
     public function getAllCatatan()
     {
         $this->db->select('*');

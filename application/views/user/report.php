@@ -16,7 +16,7 @@
                 </div>
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
-                        <a href="<?= base_url('auth') ?>" class="nav-link text-body font-weight-bold px-0">
+                        <a href="<?= base_url('auth/logut') ?>" class="nav-link text-body font-weight-bold px-0">
                             <img src="<?= base_url('assets/') ?>img/user.png" width="16px" height="16px"></img>
                             <span class="d-sm-inline d-none text-info">Sign In</span>
                         </a>

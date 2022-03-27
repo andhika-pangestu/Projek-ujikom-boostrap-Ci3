@@ -4,12 +4,9 @@
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
-                        <a href="<?= base_url('dashboard') ?>">Dashboard</a>/Data Perjalanan
-
-                    </li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
                 </ol>
-                <h3 class=" font-weight-bolder text-primary text-gradient">Data Perjalanan <?= $this->session->userdata('nama'); ?></3>
+                <h3 class="font-weight-bolder text-primary">Data Riwayat Perjalanan <?= $this->session->userdata('nama') ?></h3>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -43,6 +40,7 @@
                                     <i class="fa fa-check text-info" aria-hidden="true"></i>
                                     <span class="font-weight-bold ms-1">Perjalanan</span> Terkini
                                 </p>
+
                             </div>
                             <div class="col-lg-6 col-5 my-auto text-end">
                             </div>
@@ -50,11 +48,11 @@
                     </div>
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive">
-                            <table class="table align-items-center mb-0">
+                            <table class="table align-items-center mb-0 sortable">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal</th>
+                                        <th class=" text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nomor</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Lokasi</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jam</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Suhu</th>
@@ -64,15 +62,16 @@
                                     <?php $no = 1; ?>
                                     <?php foreach ($catatan as $c) : ?>
                                         <tr>
-                                            <td><?= $no++; ?></td>
-                                            <td><?= date("D, d M Y", strtotime($c['tanggal'])); ?></td>
-                                            <td><?= $c['lokasi']; ?></td>
-                                            <td><?= $c['jam']; ?></td>
-                                            <td><?= $c['suhu_tubuh']; ?>° C</td>
+                                            <td class="text-center"><?= $no++; ?></td>
+                                            <td class="text-center"><?= date("D, d M Y", strtotime($c['tanggal'])); ?></td>
+                                            <td class="text-center"><?= $c['lokasi']; ?></td>
+                                            <td class="text-center"><?= $c['jam']; ?></td>
+                                            <td class="text-center"><?= $c['suhu_tubuh']; ?>° C</td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>

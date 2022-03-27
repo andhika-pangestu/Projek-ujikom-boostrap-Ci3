@@ -31,16 +31,14 @@
                         <img src="<?= base_url('assets/') ?>img/id.gif" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                     </div>
                 </div>
-                <div class="col-auto my-auto">
-                    <div class="h-100">
-                        <h5 class="mb-1">
-                            Alec Thompson
-                        </h5>
-                        <p class="mb-0 font-weight-bold text-sm">
-                            CEO / Co-Founder
-                        </p>
+                <?php foreach ($profile as $p) : ?>
+                    <div class="col-auto my-auto">
+                        <div class="h-100">
+                            <h5 class="mb-1font-weight-bold text-primary">
+                                <?= $p['nama']; ?>
+                            </h5>
+                        </div>
                     </div>
-                </div>
 
             </div>
         </div>
@@ -63,16 +61,15 @@
                     </div>
                     <div class="card-body p-3">
                         <ul class="list-group">
-                            <?php foreach ($profile as $p) : ?>
-                                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name: </strong> <?= $p['nama']; ?></li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Nomor Induk Kependudukan: </strong> <?= $p['nik']; ?></li>
+                            <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name: </strong> <?= $p['nama']; ?></li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Nomor Induk Kependudukan: </strong> <?= $p['nik']; ?></li>
 
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">tgllahir: </strong> <?= $p['tgllahir']; ?></li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">jeniskel: </strong> <?= $p['jeniskel']; ?></li>
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email: </strong> <?= $p['email']; ?></li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">tgllahir: </strong> <?= $p['tgllahir']; ?></li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">jeniskel: </strong> <?= $p['jeniskel']; ?></li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email: </strong> <?= $p['email']; ?></li>
 
-                                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Alamat:</strong> <?= $p['alamat']; ?></li>
-                            <?php endforeach; ?>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Alamat:</strong> <?= $p['alamat']; ?></li>
+                        <?php endforeach; ?>
                         </ul>
                     </div>
                 </div>

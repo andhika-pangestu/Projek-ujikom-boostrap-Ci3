@@ -3,7 +3,7 @@
     </div>
     <ul class="navbar-nav  justify-content-end">
         <li class="nav-item d-flex align-items-center">
-            <a href="<?= base_url('auth') ?>" class="nav-link text-body font-weight-bold px-0">
+            <a href="<?= base_url('auth/logout') ?>" class="nav-link text-body font-weight-bold px-0">
                 <img src="<?= base_url('assets/') ?>img/user.png" width="16px" height="16px"></img>
                 <span class="d-sm-inline d-none text-info">Sign In</span>
             </a>
@@ -140,7 +140,7 @@
                 <li class="nav-item">
                     <a class="nav-link  " href="<?= base_url('profile') ?>">
                         <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="<?= base_url('assets/') ?>img/signout.png ?>" width="16px" height="16px" viewBox="0 0 45 40">
+                            <img src="<?= base_url('assets/') ?>img/flaticon.png ?>" width="18px" height="18px" viewBox="0 0 50 50">
                             <title>spaceship</title>
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g transform="translate(-1720.000000, -592.000000)" fill="#FFFFFF" fill-rule="nonzero">

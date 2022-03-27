@@ -38,8 +38,8 @@
                                                 <input type="text" class="form-control form-control-user " id="nama" name="nama" placeholder="Masukana Nama Lengkap">
                                                 <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
-                                            <div class="text-center">
-                                                <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                                            <div class="text-center mb-3">
+                                                <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">Masuk</button>
                                             </div>
                                         </form>
                                     </div>
@@ -47,6 +47,9 @@
                                         <p class="mb-4 text-sm mx-auto">
                                             Belum Punya Akun?
                                             <a href="<?= base_url('auth/register'); ?>" class="text-info text-gradient font-weight-bold">Daftar</a>
+                                        </p>
+                                        <p class="text-sm mt-3 mb-0 text-info">Masuk sebagai Petugas?
+                                            <a href="<?= base_url('admin') ?>" class="text-info font-weight-bolder">Masuk</a>
                                         </p>
                                     </div>
                                 </div>

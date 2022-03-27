@@ -35,7 +35,6 @@ class Auth extends CI_Controller
         $nama = $this->input->post('nama');
 
         $user = $this->db->get_where('tbuser', ['nik' => $nik])->row_array();
-        $user = $this->db->get_where('tbuser', ['nama' => $nama])->row_array();
         if ($user) {
 
             $data = [
@@ -60,7 +59,7 @@ class Auth extends CI_Controller
     public function register()
     {
 
-        $this->form_validation->set_rules('nama', 'Nama', 'required|trim|callback_alpha_dassh', [
+        $this->form_validation->set_rules('nama', 'Nama', 'required', ['required' => 'Nama Wajib Diisi'], 'trim|callback_alpha_dassh', [
             'required' => 'Nama Wajib Diisi',
             'alpha_dassh' => 'Mohon Masukan Nama dengan Benar'
         ]);
@@ -82,6 +81,10 @@ class Auth extends CI_Controller
             'required' => 'Jenis Kelamin Harus Dipilih',
             'in_list' => 'Jenis Kelamin Harus Dipilih',
         ]);
+        $this->form_validation->set_rules('tgllahir', 'Tgllahir', 'required|trim', [
+            'required' => 'Tanggal Lahir Wajib Diisi',
+        ]);
+
         $this->form_validation->set_rules('status', 'Status', 'required|trim|in_list[1,0]', [
             'required' => 'status Vaksinasi Harus Dipilih',
             'in_list' => 'Status Vaksinasi Harus Dipilih',
@@ -108,7 +111,8 @@ class Auth extends CI_Controller
                 'alamat' => htmlspecialchars($this->input->post('alamat', true)),
             ];
             $this->db->insert('tbuser', $data);
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><a class="text-white">Selamat! Akun anda sudah berhasil dibuat, Silahkan Login</a></div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> <span class="alert-icon"><i class="ni ni-like-2" style"white">
+            </i></span><a class="text-white">Selamat! Akun anda sudah berhasil dibuat, Silahkan Login</a></div>');
             redirect('auth');
         }
     }
